@@ -1,0 +1,112 @@
+.cell {
+  border: 2px solid #6790a4;
+  width: 75px;
+  height: 75px;
+  background: linear-gradient(145deg, #9bb5ba, #839db7);
+  border-radius: 15px;
+  color: white;
+  font-size: 50px;
+  line-height: 75px;
+  text-align: center;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2), -4px -4px 10px rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cell:hover {
+  transform: scale(1.1);
+  box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.3), -6px -6px 15px rgba(255, 255, 255, 0.3);
+}
+
+.cellGrid {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  width: 250px;
+  margin: 20px auto;
+  gap: 10px;
+  background: #f5f5f5;
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.1), inset -2px -2px 5px rgba(255, 255, 255, 0.6);
+}
+
+.container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 30px;
+  background: linear-gradient(145deg, #ffffff, #e6e6e6);
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2), -5px -5px 10px rgba(255, 255, 255, 0.5);
+}
+
+.Players {
+  display: flex;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  flex-direction: column;
+  width: 300px;
+  border: none;
+  background: linear-gradient(145deg, #ffb400, #ff7700);
+  color: white;
+  padding: 30px;
+  gap: 20px;
+  border-radius: 20px;
+  box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.3), -6px -6px 15px rgba(255, 255, 255, 0.2);
+}
+
+.Players .start {
+  all: unset;
+  background: linear-gradient(145deg, #ff6200, #ff9400);
+  padding: 15px 20px;
+  border-radius: 15px;
+  cursor: pointer;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2), -4px -4px 10px rgba(255, 255, 255, 0.2);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.start:hover {
+  background: linear-gradient(145deg, #ff9400, #ff6200);
+  transform: scale(1.1);
+}
+
+.blur {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(255, 200, 0, 0.7);
+  backdrop-filter: blur(10px);
+}
+
+.form {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+}
+.resetBtn{
+border-radius: 10px;
+size: 20px;
+font-size:larger;
+font-family: 'Times New Roman', Times, serif;
+
+
+}
+.resertBtn:hover{
+  font-size: x-large;
+  background-color: #839db7;
+}
+
+
+  
+  
+  
