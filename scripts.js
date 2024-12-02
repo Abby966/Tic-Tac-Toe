@@ -93,16 +93,59 @@ function checkWinner() {
   }
 }
 
+
 function computerMove() {
-  // Computer selects the first available cell
-  const availableCells = options.map((val, idx) => (val === "" ? idx : null)).filter((val) => val !== null);
+  // Check for available cells
+  const availableCells = options
+    .map((val, idx) => (val === "" ? idx : null))
+    .filter((val) => val !== null);
+
   if (availableCells.length > 0) {
-    const cellIdx = availableCells[0]; // Pick the first empty cell
+    let cellIdx;
+
+    // Priority 1: Check if the computer can win in the next move
+    cellIdx = findWinningMove("O"); // Assuming "O" is the computer's symbol
+    if (cellIdx === null) {
+      // Priority 2: Block the player's winning move
+      cellIdx = findWinningMove("X"); // Assuming "X" is the player's symbol
+    }
+    if (cellIdx === null) {
+      // Priority 3: Choose the center if available
+      if (options[4] === "") {
+        cellIdx = 4;
+      } else {
+        // Priority 4: Choose a random available cell as fallback
+        cellIdx = availableCells[Math.floor(Math.random() * availableCells.length)];
+      }
+    }
+
     const cell = cells[cellIdx];
     updateCell(cell, cellIdx);
     checkWinner();
   }
 }
+
+// Helper function to find a winning move
+function findWinningMove(symbol) {
+  // Winning combinations
+  const winningCombinations = [
+    [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+    [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+    [0, 4, 8], [2, 4, 6]             // Diagonals
+  ];
+
+  for (const combo of winningCombinations) {
+    const [a, b, c] = combo;
+    const line = [options[a], options[b], options[c]];
+
+    // Check if two cells are filled with the same symbol and the third is empty
+    if (line.filter((val) => val === symbol).length === 2 && line.includes("")) {
+      return combo[line.indexOf("")];
+    }
+  }
+  return null; // No winning move found
+}
+
 
 function resetGame() {
   currentPlayer = "X";
